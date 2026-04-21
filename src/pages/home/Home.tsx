@@ -1,14 +1,40 @@
-import Button from "../../components/button/Button"
-import Container from "../../components/container/Container"
+import { useState } from "react";
+import Calendar from "../../components/calendar/Calendar";
+import Container from "../../components/container/Container";
 
 const Home = () => {
-    return (
-        <section className="bg-amber-200 min-h-screen">
-            <Container direction="flex-col">
-                <h1 className="mx-auto font-bold text-[20px]">Главная страница</h1>
-                <Button isLink toLink="/addNewDay">Записать день</Button>
-            </Container>
-        </section>
-    )
-}
-export default Home
+  const [month, setMounth] = useState(3);
+  const [year, setYear] = useState(2026);
+
+  const prevMonth = () => {
+    if (month !== 0) {
+      setMounth((prev) => prev - 1);
+    } else {
+      setMounth(11);
+      setYear((prev) => prev - 1);
+    }
+  };
+
+  const nextMonth = () => {
+    if (month !== 11) {
+      setMounth((prev) => prev + 1);
+    } else {
+      setMounth(0);
+      setYear((prev) => prev + 1);
+    }
+  };
+
+  return (
+    <section className="bg-cyan-200 p-4 h-full">
+      <Container direction="flex-col" height="h-full">
+        <Calendar
+          year={year}
+          month={month}
+          nextMonth={nextMonth}
+          prevMonth={prevMonth}
+        />
+      </Container>
+    </section>
+  );
+};
+export default Home;

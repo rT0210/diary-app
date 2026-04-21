@@ -1,18 +1,17 @@
-import { NavLink } from "react-router-dom";
 import Logo from "./logo/Logo";
-import Nav from "./nav/Nav";
 import Container from "../../container/Container";
 
-const Header = () => {
+type PropsType = {
+  bg?: string,
+  children: React.ReactNode
+}
+
+const Header = ({bg = "bg-white", children} : PropsType) => {
   return (
-    <header className="bg-red-500">
+    <header className={`${bg}`}>
       <Container justify="justify-between" height="h-20" align="items-center" py="px-4">
         <Logo />
-        <Nav>
-          <NavLink to={"/"}>главная</NavLink>
-          <NavLink to={"/"}>главная</NavLink>
-          <NavLink to={"/"}>главная</NavLink>
-        </Nav>
+        {children}
       </Container>
     </header>
   );

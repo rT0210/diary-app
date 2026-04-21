@@ -43,7 +43,7 @@ const Typography = () => {
   const dispatch: AppDispatch = useDispatch();
 
   return (
-    <div className="w-[30%] rounded-2xl flex flex-col p-4 gap-4 bg-white">
+    <div className="w-[30%] rounded-2xl flex flex-col p-4 gap-4 bg-white h-full">
       <h2 className="mx-auto font-bold text-2xl">Типографика</h2>
       <hr className="w-[80%] mx-auto" />
       <div className="flex flex-col gap-4">
@@ -107,15 +107,15 @@ const Typography = () => {
           <p className="font-bold text-[20px]">Расположение</p>
           <div className="flex gap-1">
             <Bars3BottomLeftIcon
-              className="w-8 h-8"
+              className="w-8 h-8 bg-green-500 rounded-xl text-white cursor-pointer"
               onClick={() => dispatch(changePositionText("left"))}
             />
             <Bars3CenterLeftIcon
-              className="w-8 h-8"
+              className="w-8 h-8 bg-green-500 text-white rounded-xl cursor-pointer"
               onClick={() => dispatch(changePositionText("center"))}
             />
             <Bars3BottomRightIcon
-              className="w-8 h-8"
+              className="w-8 h-8 bg-green-500 text-white rounded-xl cursor-pointer"
               onClick={() => dispatch(changePositionText("right"))}
             />
           </div>

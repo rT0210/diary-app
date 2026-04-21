@@ -1,23 +1,20 @@
 import { NavLink, Outlet } from "react-router-dom";
-import Header from "./header/Header";
-import Footer from "./footer/Footer";
-import Nav from "./header/nav/Nav";
+import Header from "../layout/header/Header";
+import Nav from "../layout/header/nav/Nav";
 
-const Layout = () => {
+const SimpleLayout = () => {
   return (
     <div className="h-screen flex flex-col">
       <Header>
         <Nav>
-          <NavLink to={"/"}>главная</NavLink>
+          <NavLink to={"/"}>сохранить</NavLink>
           <NavLink to={"/"}>главная</NavLink>
           <NavLink to={"/"}>главная</NavLink>
         </Nav>
       </Header>
-      <main className="grow">
-        <Outlet />
-      </main>
-      <Footer />
+      <Outlet />
     </div>
   );
 };
-export default Layout;
+
+export default SimpleLayout;

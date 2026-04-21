@@ -4,7 +4,7 @@ const initialState = {
   sizeText: 16,
   intervalText: 1,
   colorText: "black",
-  colorBackground: "grey",
+  colorBackground: "white",
   positionText: "left" as "left" | "center" | "right",
   isBold: false,
   isItalic: false,
