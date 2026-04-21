@@ -1,73 +1,38 @@
-# React + TypeScript + Vite
+# DevDiary — Дневник разработчика
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение для ведения ежедневных заметок с гибкими настройками типографики. Создано для отслеживания прогресса в обучении и фиксации идей.
 
-Currently, two official plugins are available:
+## Стек технологий
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **TypeScript** — типобезопасный интерфейс
+- **Redux Toolkit** — управление состоянием и синхронизация с `localStorage`
+- **React Router v7** — маршрутизация
+- **Tailwind CSS** — утилитарная стилизация
+- **Heroicons** — иконки для навигации и управления текстом
 
-## React Compiler
+## Возможности
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Управление записями
+- Создание и редактирование записей по датам
+- Сохранение данных в `localStorage` (данные не теряются после перезагрузки)
+- Подсветка дней с готовыми записями в календаре
 
-## Expanding the ESLint configuration
+### Панель типографики
+- Изменение **размера шрифта** (с шагом 1px)
+- Регулировка **межстрочного интервала** (от 0.8 до 2 с шагом 0.1)
+- **Выравнивание текста**: влево, по центру, вправо
+- **Цвет текста** и **фона** (8 готовых цветов)
+- **Стили текста**: жирный, курсив, подчеркивание
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Календарь (кастомный)
+- Просмотр месяцев с переключением по стрелкам
+- **Собственная логика**:
+  - Вычисление первого дня месяца 
+  - Преобразование дней недели под формат "Пн — Вс"
+  - Расчет количества дней в месяце 
+  - Формирование сетки 6×7 с пустыми ячейками для выравнивания
+- Клик по дню → переход на страницу создания/редактирования записи
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Планы
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Проект закончен на 50%, осталось добавить немного логики, пару свойств в типографике и сделать адаптив
