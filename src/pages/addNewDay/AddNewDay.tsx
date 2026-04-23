@@ -15,6 +15,7 @@ const AddNewDay = () => {
   );
   const [title, setTitle] = useState<string>(savedEntry?.title || "");
   const [content, setContent] = useState<string>(savedEntry?.content || "");
+  const [isShowSettings, setIsShowSettings] = useState<boolean>(false)
   const {
     sizeText,
     intervalText,
@@ -45,18 +46,32 @@ const AddNewDay = () => {
     navigate(-1)
   };
 
+  const handleSettings = () => {
+    setIsShowSettings((prev) => !prev)
+  }
+
   return (
     <section className="bg-purple-300 h-full z-10">
       <Container
         py="p-4"
-        justify="justify-between"
+        justify="justify-around"
         height="h-full"
         align="items-stretch"
       >
         <div
-          className="w-[60%] rounded-2xl p-8 flex flex-col relative"
+          className="w-[80%] rounded-2xl p-8 flex flex-col relative mx-auto md:mx-0 md:w-[60%]"
           style={{ backgroundColor: colorBackground }}
         >
+          <button className="absolute top-4 right-4 md:hidden cursor-pointer" onClick={handleSettings}>
+            <hr className="h-1 w-5"/>
+            <hr className="h-1 w-5"/>
+            <hr className="h-1 w-5"/>
+          </button>
+          {isShowSettings && (
+            <div className={`absolute w-[50%] h-fit top-10 right-0 flex justify-end menu-slide`}>
+              <Typography isShowSettings={isShowSettings}/>
+            </div>
+          )}
           <textarea
             className={`w-full font-bold resize-none text-2xl h-10 mb-4 `}
             name=""
@@ -67,7 +82,7 @@ const AddNewDay = () => {
           ></textarea>
           <textarea
             key={colorText}
-            className={`w-full text-xl h-[80%]`}
+            className={`w-full text-xl h-[80%] resize-none`}
             value={content}
             onChange={(e) => setContent(e.target.value)}
             style={{
@@ -85,7 +100,7 @@ const AddNewDay = () => {
           ></textarea>
           <button onClick={handleSave}>сохранить</button>
           <div className="w-14 h-30 border absolute top-0 -left-8 rounded-2xl -z-10 bg-red-400 flex justify-end items-center">
-            <p className="flex -rotate-90 whitespace-nowrap">16 марта</p>
+            <p className="flex -rotate-90 whitespace-nowrap">{date}</p>
           </div>
         </div>
 

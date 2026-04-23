@@ -7,8 +7,6 @@ const SimpleLayout = () => {
     <div className="h-screen flex flex-col">
       <Header>
         <Nav>
-          <NavLink to={"/"}>сохранить</NavLink>
-          <NavLink to={"/"}>главная</NavLink>
           <NavLink to={"/"}>главная</NavLink>
         </Nav>
       </Header>

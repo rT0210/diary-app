@@ -67,7 +67,7 @@ const Calendar = ({ year, month, nextMonth, prevMonth }: PropsType) => {
           return (
             <button
               key={i}
-              className={`text-center p-2 border rounded min-h-10.5 ${hasEntry ? "bg-red-500" : "bg-white"}`}
+              className={`text-center p-2 border rounded min-h-10.5 ${hasEntry ? "bg-red-500" : day !== null ? "bg-white" : "bg-gray-400"}`}
               onClick={() => navigate(`/addNewDay?date=${dateStr}`)}
               disabled={day === null}
             >

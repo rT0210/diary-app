@@ -21,7 +21,7 @@ const Button = ({ children, width, bg, isLink, toLink, radius, height, textColor
           <button onClick={onClick} className={`${width} ${bg} ${radius} ${height} ${textColor} ${border}`}>{children}</button>
         </Link>
       ) : (
-        <button onClick={onClick} className={`${width} ${bg} ${radius} ${height} ${textColor} ${border}`}>{children}</button>
+        <button onClick={onClick} className={`${width} ${bg} ${radius} ${height} ${textColor} ${border} flex items-center justify-center`}>{children}</button>
       )}
     </>
   );

@@ -8,9 +8,7 @@ const Layout = () => {
     <div className="h-screen flex flex-col">
       <Header>
         <Nav>
-          <NavLink to={"/"}>главная</NavLink>
-          <NavLink to={"/"}>главная</NavLink>
-          <NavLink to={"/"}>главная</NavLink>
+          <NavLink to={"/"}>#заглушка</NavLink>
         </Nav>
       </Header>
       <main className="grow">
